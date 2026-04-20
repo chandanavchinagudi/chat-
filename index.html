@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CogniForge - Interactive quiz with dynamic questions, timer, dark mode & voice">
+    <title>CogniForge • Forge Your Mind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>CogniForge</h1>
+            </div>
+            <nav>
+                <button id="dark-mode-btn" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+                <button id="home-btn" class="btn-secondary">Home</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <!-- CATEGORY SCREEN -->
+        <section id="category-screen" class="screen active">
+            <div class="screen-header">
+                <h2>Welcome to CogniForge</h2>
+                <p class="tagline">Choose a domain • Fresh questions every time • Built with pure HTML, CSS &amp; JS</p>
+                
+                <div class="search-wrapper">
+                    <input type="text" id="category-search" placeholder="Search categories..." aria-label="Search categories">
+                </div>
+            </div>
+            
+            <div id="categories-grid" class="categories-grid"></div>
+            
+            <div id="no-results" class="no-results hidden">
+                <p>No categories match your search. Try different keywords.</p>
+            </div>
+        </section>
+
+        <!-- DIFFICULTY SCREEN -->
+        <section id="difficulty-screen" class="screen hidden">
+            <button id="back-to-category" class="back-btn">← Back</button>
+            <h2 id="selected-category-name" class="screen-title"></h2>
+            <p class="screen-subtitle">Select difficulty level</p>
+            
+            <div class="difficulty-options">
+                <button class="difficulty-card" data-level="easy">
+                    <div class="diff-icon">🟢</div>
+                    <h3>Easy</h3>
+                    <p>30 seconds per question</p>
+                    <small>Beginner friendly</small>
+                </button>
+                <button class="difficulty-card" data-level="medium">
+                    <div class="diff-icon">🟡</div>
+                    <h3>Medium</h3>
+                    <p>45 seconds per question</p>
+                    <small>Balanced challenge</small>
+                </button>
+                <button class="difficulty-card" data-level="hard">
+                    <div class="diff-icon">🔴</div>
+                    <h3>Hard</h3>
+                    <p>60 seconds per question</p>
+                    <small>Expert level</small>
+                </button>
+            </div>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz-screen" class="screen hidden">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="progress-text">Question <strong>1</strong> of 10</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="timer-wrapper">
+                    <div id="timer-circle" class="timer-circle">
+                        <span id="timer-value">30</span>
+                    </div>
+                    <small>seconds left</small>
+                </div>
+                
+                <button id="voice-btn" class="icon-btn voice-btn" aria-label="Read question aloud">🔊</button>
+            </div>
+
+            <div class="question-card">
+                <h3 id="question-text" class="question-text"></h3>
+                <div id="options-container" class="options-container"></div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="next-btn" class="btn-primary hidden">Next Question →</button>
+                <button id="quit-btn" class="btn-secondary">Quit Quiz</button>
+            </div>
+
+            <div id="feedback-message" class="feedback-message hidden"></div>
+        </section>
+
+        <!-- RESULT SCREEN -->
+        <section id="result-screen" class="screen hidden">
+            <div class="result-container">
+                <div id="result-icon" class="result-icon">🏆</div>
+                <h2 id="result-title">Quiz Complete!</h2>
+                <p id="result-subtitle" class="result-subtitle"></p>
+                
+                <div class="score-circle">
+                    <span id="final-score" class="score-number">8</span>
+                    <span class="score-label">/ 10</span>
+                </div>
+                
+                <div class="result-stats">
+                    <div class="stat">
+                        <span id="correct-count" class="stat-value">8</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                    <div class="stat">
+                        <span id="accuracy" class="stat-value">80%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span id="time-spent" class="stat-value">6m 12s</span>
+                        <span class="stat-label">Time Taken</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="restart-btn" class="btn-primary">Restart Same Quiz</button>
+                    <button id="new-quiz-btn" class="btn-secondary">Choose New Category</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+    
+   
+
